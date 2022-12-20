@@ -90,8 +90,8 @@ while True:
         # Demander le nom et le detail du personnage à l'utilisateur
         os.system("clear")
         print("Exemple:\nNom du personnage: Harry Potter")
-        print("Détail du personnage: Harry Potter est le personnage principale du roman de J. K. Rowling (il est important de situer le personnage)")
-        print("Harry Potter vient juste de vaincre Voldemort (n'hesitez pas à donner des instructions au context et a être très précis)")
+        print("Détail du personnage: Harry Potter est le personnage principale du roman de J. K. Rowling (il est important de situer l'oeuvre du personnage)")
+        print("Harry Potter vient juste de vaincre Voldemort (n'hesitez pas à donner des instructions au context et a être très précis\n\nVous pouvez inventer un personnage de toute pièce ou prendre un personnage déjà existant, fictif ou non.)")
         story_title = input("\nNom du personnage: ")
         story_text = input("Détail du personnage: ")
         # Écrire le personnage
