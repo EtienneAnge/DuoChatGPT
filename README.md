@@ -10,3 +10,4 @@ Execution:
 
 note:
 -vous pouvez modifier a tout moment votre clé openAI dans le fichier key.txt
+-la date des connaissances de GPT3 ne vont pas plus loin que 2021 donc inutile d'essayer des personnages trop récent ou de dialoguer des actualité
