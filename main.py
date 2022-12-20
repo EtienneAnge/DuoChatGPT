@@ -36,6 +36,7 @@ def duochat(story_title):
     ai = story_title
     print("personnage choisi:", ai)
     print("Début de la conversation: ")
+    prompt = prompt + "\n" + ai + " a une conversation avec une personne: "
 
     while True:
         input_user = input("\nVous: ")
@@ -56,7 +57,6 @@ def delete_story(story_title):
     # Supprime le fichier avec le nom du personnage comme nom, dans le répertoire 'character'
     filename = "character/" + story_title + ".txt"
     os.remove(filename)
-    print("l'histoire: " + filename + "a bien été suprimé")
 
 def retrieve_stories():
     # Récupère la liste de tous les fichiers dans le répertoire 'character'
@@ -91,7 +91,7 @@ while True:
         os.system("clear")
         print("Exemple:\nNom du personnage: Harry Potter")
         print("Détail du personnage: Harry Potter est le personnage principale du roman de J. K. Rowling (il est important de situer l'oeuvre du personnage)")
-        print("Harry Potter vient juste de vaincre Voldemort (n'hesitez pas à donner des instructions au context et a être très précis\n\nVous pouvez inventer un personnage de toute pièce ou prendre un personnage déjà existant, fictif ou non.)")
+        print("Harry Potter vient juste de vaincre Voldemort (n'hesitez pas à donner du context et a être très précis)\n\n-Vous pouvez inventer un personnage de toute pièce ou prendre un personnage déjà existant, fictif ou non\n-Plus vous êtes précis dans la description et plus le model sera précis\n-Vous pouvez aussi dire comment le personnage dois se comporter et ce que vous attendez de lui")
         story_title = input("\nNom du personnage: ")
         story_text = input("Détail du personnage: ")
         # Écrire le personnage
@@ -99,15 +99,19 @@ while True:
 
     elif choice == "2":
         os.system("clear")
+        print("Voici tout les personnes enregirstré:")
         # Récupère la liste de tous les fichiers dans le répertoire 'character'
         files = os.listdir("character/")
         # Filtre la liste pour ne garder que les fichiers .txt
         txt_files = [f for f in files if f.endswith(".txt")]
-        print(txt_files)
+        for filename in txt_files:
+            filename_without_extension = os.path.splitext(filename)[0]
+            print("-"+filename_without_extension)
         # Demander le titre du personnage à l'utilisateur
         story_title = input("Quel personnage voulez-vous supprimer: ")
         # Supprimer le personnage
         delete_story(story_title)
+        print("le personnage "+story_title+" a bien été supprimé !")
 
     elif choice == "3":
         os.system("clear")
@@ -125,7 +129,7 @@ while True:
         txt_files = [f for f in files if f.endswith(".txt")]
         for filename in txt_files:
             filename_without_extension = os.path.splitext(filename)[0]
-            print(filename_without_extension)
+            print("-"+filename_without_extension)
         # Demander le nom du personnage à l'utilisateur
         story_title = input("\nAvec quel personnage voulez-vous lancer le dialogue (saisir le nom en entier): ")
         duochat(story_title)
